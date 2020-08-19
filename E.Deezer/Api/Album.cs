@@ -32,7 +32,7 @@ namespace E.Deezer.Api
         string ShareLink { get; }
         string ArtistName { get; }
         string RecordType { get; }
-        DateTime? ReleaseDate { get; }
+        string? ReleaseDate { get; }
         bool HasExplicitLyrics { get; }
         IImages CoverArtwork { get; }
         IAlbum AlternativeAlbum { get; }
@@ -79,7 +79,7 @@ namespace E.Deezer.Api
 
         public bool Available { get; private set; }
 
-        public DateTime? ReleaseDate { get; private set; }
+        public string ReleaseDate { get; private set; }
 
         public IImages CoverArtwork { get; private set; }
 
@@ -182,7 +182,7 @@ namespace E.Deezer.Api
             }
 
             string apiDateString = json.Value<string>(RELEASE_DATE_PROPERTY_NAME);
-            DateTime? releaseDate = DateTimeExtensions.ParseApiDateTime(apiDateString);
+            string releaseDate = DateTimeExtensions.ParseApiDateTime(apiDateString);
 
             return new Album()
             {
